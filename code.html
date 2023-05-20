@@ -45,7 +45,7 @@
                     <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" target="_blank"href="#">Git Repo</a>
+                    <a class="nav-link" target="_blank"href="https://github.com/bmore0fm3/Thawne">Git Repo</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" target="_blank"href="https://delander-portfolio.netlify.app/index.html">About</a>
@@ -63,17 +63,61 @@
                 <div class="col-lg-8">
                     <pre class="line-numbers">
                         <code class="language-javascript">
-                            //Call Hello World
-                            function HelloWorld(){
-                            alert("hello world");
+                            //Get the string from the page
+                            //controller function
+                            function getValues(){
+                            
+                                document.getElementById("alert").classList.add("invisible");
+                            
+                                let userString = document.getElementById("userString").value;
+                                let reversedString = reverseString(userString);
+                            
+                                displayString(reversedString);
+                            
                             }
+                            
+                            
+                            //Reverse the string
+                            //logic function
+                            function reverseString(userString){
+                                let revString = [];
+                            
+                                for (let index = userString.length - 1; index >= 0; index --){
+                                    revString += userString[index];
+                                }
+                            
+                                return revString
+                            }
+                            
+                            //Display reversed string to the user
+                            //display function
+                            function displayString(reversedString){
+                            
+                                //write message to page
+                                document.getElementById("msg").innerHTML = `Your string reversed is: ${reversedString}`;
+                            
+                                //show alert box
+                                document.getElementById("alert").classList.remove("invisible");
                         </code>
                     </pre>
                 </div>
                 <div class="col-lg-4">
-                    <p> The code is structurd in one function</p>
-                    <h5>Hello World!</h5>
-                    <p>Hello World is a function that displays an alert with a message of Hello World!</p>
+                    <p> The code is structurd in three functions</p>
+                    <h5>getValues</h5>
+                    <p>This is a controller function. It adds the invisible class to the alert elementID. Next, it captures the user
+                        input from the userString elementID. The reverseString function is called and the return value is stored in 
+                        the reversedString variable. Finally, display string is called to present the result to the user. 
+                    </p>
+                    
+                    <h5>reverseString</h5>
+                    <p>This is a logic function. It takes in userString as input. The function creates and array named revString. It then
+                        uses a for loop to traverse the string backwards to save each character to the revString array. Finally, the 
+                        function returns the array. 
+                    </p>
+                    <h5>displayString</h5>
+                    <p>This is a view function. This function uses the reveresedString as input. It locates the msg elementID in the DOM
+                        and updates the innerHTML with a template variable. Finally, it removes the the invisbile class from the alert elementID. 
+                    </p>
                 </div>
             </div>
         </div>
